@@ -1,0 +1,55 @@
+﻿@model MagicVilla_Web.Models.DTO.VillaDTO
+@{
+    ViewData["Title"] = "EliminarVilla";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="EliminarVilla">
+    <div class="container border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="row">
+            <h2 class="text-info">Eliminar Villa</h2>
+        </div>
+
+        <div class="row m-t-2">
+            <div class="col-md-6">
+                <label class="form-label">Nombre de la Villa</label>
+                <input disabled asp-for="Nombre" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Tarifa</label>
+                <input disabled asp-for="Tarifa" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Detalles</label>
+                <textarea  disabled asp-for="Detalle" class="form-control"></textarea>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Imagen</label>
+                <input disabled asp-for="ImaUrl" class="form-control" />             
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Ocupantes</label>
+                <input disabled asp-for="Ocupantes" class="form-control" />      
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Metros Cuadrados</label>
+                <input disabled asp-for="MetrosCuadrados" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Amenidad</label>
+                <textarea disabled asp-for="Amenidad" class="form-control"></textarea>
+            </div>
+            <div class="d-grid gap-2 d-md-block mt-2">
+                <button type="submit" class="btn btn-danger"> Borrar</button>
+                <a asp-controller="Villa" asp-action="IndexVilla" class=" btn btn-success">Volver</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}
