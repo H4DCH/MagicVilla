@@ -1,4 +1,7 @@
 
+using MagicVilla_API.Datos;
+using Microsoft.EntityFrameworkCore;
+
 namespace MagicVilla_API
 {
     public class Program
@@ -9,10 +12,14 @@ namespace MagicVilla_API
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddNewtonsoftJson();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<Context>(options => {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Conexion"));
+            });
 
             var app = builder.Build();
 
