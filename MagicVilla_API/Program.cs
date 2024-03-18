@@ -20,7 +20,7 @@ namespace MagicVilla_API
             builder.Services.AddDbContext<Context>(options => {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Conexion"));
             });
-
+            builder.Services.AddAutoMapper(typeof(MapperProfile));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
