@@ -1,5 +1,7 @@
 
 using MagicVilla_API.Datos;
+using MagicVilla_API.Repository;
+using MagicVilla_API.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 namespace MagicVilla_API
@@ -12,6 +14,8 @@ namespace MagicVilla_API
 
             // Add services to the container.
 
+            builder.Services.AddScoped<IVillaRepository,VillaRepository>();
+
             builder.Services.AddControllers().AddNewtonsoftJson();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -21,6 +25,7 @@ namespace MagicVilla_API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Conexion"));
             });
             builder.Services.AddAutoMapper(typeof(MapperProfile));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
