@@ -15,6 +15,7 @@ namespace MagicVilla_API
             // Add services to the container.
 
             builder.Services.AddScoped<IVillaRepository,VillaRepository>();
+            builder.Services.AddScoped<INumeroVillaRepository, NumeroVillaRepository>();
 
             builder.Services.AddControllers().AddNewtonsoftJson();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
